@@ -3,7 +3,7 @@ function Add-FlowchartSubgraph {
     <#
 
     .SYNOPSIS
-    Adds a new flowchart to a flowchart.
+    Adds a new flowchart subgraph to a flowchart diagram.
 
     .DESCRIPTION
     Create and add a subgraph. Subgraphs may contain nodes, links, interactions and other subgraphs.

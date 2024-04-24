@@ -62,6 +62,7 @@ function ConvertTo-String {
 
         # Orientation of the flowchart.
         [Parameter(ValueFromPipelineByPropertyName, ParameterSetName = 'flowchart')]
+        [Parameter(Mandatory, ValueFromPipelineByPropertyName, ParameterSetName = 'flowchartSubgraph')]
         [string] $Orientation,
 
         # Collection of nodes for a flowchart.
@@ -89,7 +90,7 @@ function ConvertTo-String {
 
         # Collection of subgraphs for a flowchart.
         [Parameter(Mandatory, ValueFromPipelineByPropertyName, ParameterSetName = 'flowchart')]
-        [Parameter(Mandatory, ValueFromPipelineByPropertyName, ParameterSetName = 'flowchartSubgraph')]
+        [Parameter(ValueFromPipelineByPropertyName, ParameterSetName = 'flowchartSubgraph')]
         [AllowEmptyCollection()]
         [PSCustomObject[]] $Subgraphs,
 
@@ -433,7 +434,7 @@ function ConvertTo-String {
                         $Nodes | ConvertTo-String -FromFlowchartNode | Write-Output
                         $Clicks | ConvertTo-String -FromFlowchartClick | Write-Output
                         $Links | ConvertTo-String -FromFlowchartLink | Write-Output
-                        ( $Subgraphs | ConvertTo-String -FromFlowchartSubgraph ) -split [Environment]::NewLine | Write-Output
+                        #( $Subgraphs | ConvertTo-String -FromFlowchartSubgraph ) -split [Environment]::NewLine | Write-Output
                     ) | ForEach-Object { "    $_" | Write-Output }
                     Write-Output "end"
                 }

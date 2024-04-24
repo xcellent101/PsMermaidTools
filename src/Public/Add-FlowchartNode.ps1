@@ -1,4 +1,16 @@
 function Add-FlowchartNode {
+     <#
+
+    .SYNOPSIS
+    Adds a new node to a flowchart.
+
+    .DESCRIPTION
+    Create and add a note explicitly to the diagram. You can specify the style via class or geometry.
+
+    .LINK
+    https://mermaid.js.org/syntax/flowchart.html#node-shapes
+
+    #>
 
     [CmdletBinding()]
     param (
