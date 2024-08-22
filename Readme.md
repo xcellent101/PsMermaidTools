@@ -10,7 +10,23 @@ Install PsMermaidTools from [PowerShell Gallery](https://www.powershellgallery.c
 
 ```powershell
 Install-Module -Name PsMermaidTools -Scope CurrentUser
+#The above command fails when tested in Aug2024. Suspect the module is removed from PSGallery
+
+#Alternatively you can download the zip file from the [releases page](https://github.com/xcellent101/PsMermaidTools) and extract it to a folder of your choice and then install
+Install-Module -Name PsMermaidTools -Scope CurrentUser -Path "path-to-extracted-zip-file"
 ```
+
+### From GitHub (Clone)
+Clone the project from Github and run the following command on your project folder
+```pwsh
+#git clone the project from Github and run the following command on your project folder
+git clone https://github.com/xcellent101/PsMermaidTools
+
+#and then import the main module in your code
+Import-Module -Name .\PsMermaidTools\src\PsMermaidTools.psm1
+```
+
+
 
 ### From Source
 
@@ -21,6 +37,8 @@ Invoke-Build Install
 ## Usage
 
 See [the command reference](./docs/) for descriptions and examples.
+
+See detailed examples & How to at the [HowTo Link](./XcellentNotes.md/) 
 
 ## Changelog
 
