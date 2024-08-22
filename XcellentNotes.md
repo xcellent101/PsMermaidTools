@@ -58,24 +58,21 @@ Add-FlowchartLink -Diagram $Diagram -Source "NodeId-1001" -Destination "NodeId-1
 
 ### Add link options
 ```pwsh
-		# The link text.
-        [Parameter(Position = 2)]
-        [string] $Text,
-
-        # The link style.
-        [Parameter()]
-        [ValidateSet('solid', 'dotted', 'thick')]
-        [string] $Line = 'solid',
-
-        # The head style to destination direction.
-        [Parameter()]
-        [ValidateSet('arrow', 'open', 'circle', 'cross')]
-        [string] $DestinationHead = 'arrow',
-
-        # The head style to destination direction.
-        [Parameter()]
-        [ValidateSet('arrow', 'open', 'circle', 'cross')]
-        [string] $SourceHead = 'open'
+# The link text.
+[Parameter(Position = 2)]
+[string] $Text
+# The link style.
+[Parameter()]
+[ValidateSet('solid', 'dotted', 'thick')]
+[string] $Line = 'solid'
+# The head style to destination direction.
+[Parameter()]
+[ValidateSet('arrow', 'open', 'circle', 'cross')]
+[string] $DestinationHead = 'arrow'
+# The head style to destination direction.
+[Parameter()]
+[ValidateSet('arrow', 'open', 'circle', 'cross')]
+[string] $SourceHead = 'open'
 ```
 
 ## Convert the diagrame to Mermaid Txt Code
@@ -83,7 +80,6 @@ Add-FlowchartLink -Diagram $Diagram -Source "NodeId-1001" -Destination "NodeId-1
 $MermaidCode = $Diagram | ConvertTo-String
 $MermaidCode | Out-File -Path .\myfile.txt
 ```
-
 
 ## Subgraph
 Subgraphs doesnt really work at the current PsMermaidTools version 0.5
@@ -108,7 +104,6 @@ $mySubgraph1 | Add-FlowchartNode -Key "node123" -Text "node 123"
 $diagram.Subgraphs += $mySubgraph1
 #Create a link between two nodes in the subgraph (source & Destination is Key for node)
 $mySubgraph1 | Add-FlowchartLink -Source "nodeXXX" -Destination "nodeYYY"
-
 
 #Create subgraph2
 $mySubgraph2 = New-FlowchartSubgraph -Title "mytitle2" -key "subgraph2key" -Orientation left-to-right
